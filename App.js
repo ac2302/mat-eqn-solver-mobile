@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import NSelector from "./components/NSelector";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [nVariables, setNVariables] = React.useState(3);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	const [coefficients, setCoefficiients] = React.useState([[]]);
+	const [constants, setConstants] = React.useState(Array(3).fill(0));
+
+	React.useEffect(() => {
+		let l = nVariables * 10;
+		l /= 10;
+
+		setConstants((prevState) => Array(l).fill(0));
+
+		setCoefficiients((prevState) =>
+			Array(l)
+				.fill([])
+				.map((e) => Array(l).fill(0))
+		);
+	}, [nVariables]);
+
+	// coefficient state debug
+	React.useEffect(() => {
+		console.log(coefficients);
+	}, [coefficients]);
+
+	return (
+		<View>
+			<NSelector nVariables={nVariables} setNVariables={setNVariables} />
+			<Text>variables: {nVariables}</Text>
+			<Text>constants: {constants.length}</Text>
+			<Text>
+				height: {coefficients.length} width: {coefficients[0].length}
+			</Text>
+			<StatusBar style="auto" />
+		</View>
+	);
+}

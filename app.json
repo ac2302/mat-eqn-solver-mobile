@@ -23,10 +23,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "mes.apk"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A simultaneous linear equation solver using matrices",
+    "githubUrl": "https://github.com/ac2302/mat-eqn-solver-mobile"
   }
 }
