@@ -12,7 +12,7 @@ export default function App() {
 	const styles = StyleSheet.create({
 		safeView: {
 			flex: 1,
-			paddingTop: Platform.OS === "android" ? 25 : 0, //Android
+			paddingTop: 25, // fuck ios
 			paddingLeft: 25,
 			paddingRight: 25,
 		},
