@@ -31,19 +31,9 @@ export default function App() {
 		);
 	}, [nVariables]);
 
-	// coefficient state debug
-	React.useEffect(() => {
-		console.log(coefficients);
-	}, [coefficients]);
-
 	return (
 		<View style={styles.safeView}>
 			<NSelector nVariables={nVariables} setNVariables={setNVariables} />
-			<Text>variables: {nVariables}</Text>
-			<Text>constants: {constants.length}</Text>
-			<Text>
-				height: {coefficients.length} width: {coefficients[0].length}
-			</Text>
 		</View>
 	);
 }
