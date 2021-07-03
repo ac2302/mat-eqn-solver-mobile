@@ -9,6 +9,15 @@ export default function App() {
 	const [coefficients, setCoefficiients] = React.useState([[]]);
 	const [constants, setConstants] = React.useState(Array(3).fill(0));
 
+	const styles = StyleSheet.create({
+		safeView: {
+			flex: 1,
+			paddingTop: Platform.OS === "android" ? 25 : 0, //Android
+			paddingLeft: 25,
+			paddingRight: 25,
+		},
+	});
+
 	React.useEffect(() => {
 		let l = nVariables * 10;
 		l /= 10;
@@ -28,14 +37,13 @@ export default function App() {
 	}, [coefficients]);
 
 	return (
-		<View>
+		<View style={styles.safeView}>
 			<NSelector nVariables={nVariables} setNVariables={setNVariables} />
 			<Text>variables: {nVariables}</Text>
 			<Text>constants: {constants.length}</Text>
 			<Text>
 				height: {coefficients.length} width: {coefficients[0].length}
 			</Text>
-			<StatusBar style="auto" />
 		</View>
 	);
 }

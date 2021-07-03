@@ -12,7 +12,7 @@ function NSelector({ nVariables, setNVariables }) {
 		<View>
 			<Text>enter number of variables</Text>
 			<TextInput
-				style={{ border: "1px solid black" }}
+				style={{ borderWidth: 1, borderRadius: 100, paddingLeft: 12 }}
 				defaultValue={3}
 				onChangeText={updateNVariables}
 			/>
