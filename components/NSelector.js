@@ -20,7 +20,7 @@ function NSelector({ nVariables, setNVariables }) {
 				onChangeText={updateNVariables}
 			/>
 			<NumericInput
-				value={nVariables}
+				value={Number(nVariables)}
 				minValue={1}
 				maxValue={25}
 				step={1}
