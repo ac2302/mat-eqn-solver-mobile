@@ -13,12 +13,7 @@ function NSelector({ nVariables, setNVariables }) {
 	return (
 		<View>
 			<Text>enter number of variables</Text>
-			{/* the old textinput is there for browser debugging */}
-			<TextInput
-				style={{ borderWidth: 1, borderRadius: 100, paddingLeft: 12 }}
-				defaultValue={3}
-				onChangeText={updateNVariables}
-			/>
+
 			<NumericInput
 				value={Number(nVariables)}
 				minValue={1}
