@@ -14,8 +14,9 @@ function VarSelectors({
 	for (let i = 0; i < nVariables; i++) {
 		selectors[i] = (
 			<VarSelector
-                key={i}
+				key={i}
 				n={i}
+				nVariables={nVariables}
 				coefficients={coefficients}
 				setCoefficients={setCoefficients}
 				constants={constants}
