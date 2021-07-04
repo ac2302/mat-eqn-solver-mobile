@@ -3,6 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import NSelector from "./components/NSelector";
 import VarSelectors from "./components/VarSelectors";
+import SolveButton from "./components/SolveButton";
 
 export default function App() {
 	const [nVariables, setNVariables] = React.useState(3);
@@ -32,10 +33,6 @@ export default function App() {
 		);
 	}, [nVariables]);
 
-	React.useEffect(() => {
-		console.log({ constants, coefficients });
-	}, [constants, coefficients]);
-
 	return (
 		<View style={styles.safeView}>
 			<NSelector nVariables={nVariables} setNVariables={setNVariables} />
@@ -49,6 +46,12 @@ export default function App() {
 					setConstants={setConstants}
 				/>
 			</ScrollView>
+
+			<SolveButton
+				nVariables={nVariables}
+				coefficients={coefficients}
+				constants={constants}
+			/>
 		</View>
 	);
 }
