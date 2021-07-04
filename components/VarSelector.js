@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import NumericInput from "react-native-numeric-input";
 
 function VarSelector({
 	n,
@@ -21,10 +22,43 @@ function VarSelector({
 	}
 	equation += `= ${constants[n]}`;
 
+	const inputs = Array(nVariables + 1);
+	for (let i = 0; i < nVariables; i++) {
+		inputs[i] = (
+			<NumericInput
+				key={i}
+				type="up-down"
+				valueType="real"
+				onChange={(newVal) => {
+					setCoefficients((prevState) => {
+						prevState[n][i] = newVal;
+						console.log(prevState[n][i]);
+						return prevState;
+					});
+				}}
+			/>
+		);
+	}
+	inputs[nVariables] = (
+		<NumericInput
+			key="const"
+			type="up-down"
+			valueType="real"
+			onChange={(newVal) =>
+				setConstants((prevState) => {
+					prevState[n] = newVal;
+					return prevState;
+				})
+			}
+		/>
+	);
+
 	return (
 		<View>
 			<Text>equation {n + 1}: </Text>
 			<Text> {equation}</Text>
+			{/* inputs */}
+			{inputs}
 		</View>
 	);
 }
