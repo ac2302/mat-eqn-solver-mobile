@@ -16,7 +16,7 @@ export default function App() {
 	const styles = StyleSheet.create({
 		safeView: {
 			flex: 1,
-			paddingTop: 25, // fuck ios
+			paddingTop: 40, // fuck ios
 			paddingLeft: 25,
 			paddingRight: 25,
 		},
