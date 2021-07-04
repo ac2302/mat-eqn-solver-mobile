@@ -4,12 +4,14 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import NSelector from "./components/NSelector";
 import VarSelectors from "./components/VarSelectors";
 import SolveButton from "./components/SolveButton";
+import AnsDisplay from "./components/AnsDisplay";
 
 export default function App() {
 	const [nVariables, setNVariables] = React.useState(3);
 
 	const [coefficients, setCoefficients] = React.useState([[]]);
 	const [constants, setConstants] = React.useState(Array(3).fill(0));
+	const [ans, setAns] = React.useState({ message: "", values: [] });
 
 	const styles = StyleSheet.create({
 		safeView: {
@@ -45,12 +47,15 @@ export default function App() {
 					constants={constants}
 					setConstants={setConstants}
 				/>
+
+				<AnsDisplay ans={ans} nVariables={nVariables} />
 			</ScrollView>
 
 			<SolveButton
 				nVariables={nVariables}
 				coefficients={coefficients}
 				constants={constants}
+				setAns={setAns}
 			/>
 		</View>
 	);
