@@ -19,6 +19,7 @@ function VarSelector({
 			/* initially,  the coefficients is [[]] */
 		}
 	}
+	equation += `= ${constants[n]}`;
 
 	return (
 		<View>
