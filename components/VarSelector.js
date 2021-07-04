@@ -13,9 +13,10 @@ function VarSelector({
 	let equation = "";
 	for (let i = 0; i < nVariables; i++) {
 		try {
-			const coefficient = coefficients[n][i];
+			let coefficient = coefficients[n][i];
 			const sign = coefficient < 0 ? "-" : "+";
-			equation += `+ ${coefficient} x${i + 1} `;
+			if (sign === "-") coefficient *= -1;
+			equation += `${sign} ${coefficient} x${i + 1} `;
 		} catch {
 			/* initially,  the coefficients is [[]] */
 		}
