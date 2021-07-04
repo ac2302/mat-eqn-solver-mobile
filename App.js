@@ -32,6 +32,10 @@ export default function App() {
 		);
 	}, [nVariables]);
 
+	React.useEffect(() => {
+		console.log({ constants, coefficients });
+	}, [constants, coefficients]);
+
 	return (
 		<View style={styles.safeView}>
 			<NSelector nVariables={nVariables} setNVariables={setNVariables} />
