@@ -24,41 +24,52 @@ function VarSelector({
 
 	const inputs = Array(nVariables + 1);
 	for (let i = 0; i < nVariables; i++) {
-		inputs[i] = (
+		inputs[i] = {
+			key: `x${i + 1}`,
+			value: (
+				<NumericInput
+					key={i}
+					type="up-down"
+					valueType="real"
+					onChange={(newVal) => {
+						setCoefficients((prevState) => {
+							prevState[n][i] = newVal;
+							console.log(prevState[n][i]);
+							return prevState;
+						});
+					}}
+				/>
+			),
+		};
+	}
+	inputs[nVariables] = {
+		key: `=`,
+		value: (
 			<NumericInput
-				key={i}
+				key="const"
 				type="up-down"
 				valueType="real"
-				onChange={(newVal) => {
-					setCoefficients((prevState) => {
-						prevState[n][i] = newVal;
-						console.log(prevState[n][i]);
+				onChange={(newVal) =>
+					setConstants((prevState) => {
+						prevState[n] = newVal;
 						return prevState;
-					});
-				}}
+					})
+				}
 			/>
-		);
-	}
-	inputs[nVariables] = (
-		<NumericInput
-			key="const"
-			type="up-down"
-			valueType="real"
-			onChange={(newVal) =>
-				setConstants((prevState) => {
-					prevState[n] = newVal;
-					return prevState;
-				})
-			}
-		/>
-	);
+		),
+	};
 
 	return (
 		<View>
 			<Text>equation {n + 1}: </Text>
 			<Text> {equation}</Text>
 			{/* inputs */}
-			{inputs}
+			{inputs.map((x) => (
+				<Text key={x.key}>
+					<Text>{x.key}</Text>
+					{x.value}
+				</Text>
+			))}
 		</View>
 	);
 }
