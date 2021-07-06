@@ -31,6 +31,7 @@ function NSelector({ nVariables, setNVariables }) {
 			textAlign: "center",
 			borderWidth: 1,
 			borderColor: colors.text,
+			color: colors.text,
 			backgroundColor: colors.wash,
 		},
 	});
@@ -43,27 +44,8 @@ function NSelector({ nVariables, setNVariables }) {
 				style={styles.numinput}
 				onChange={updateNVariables}
 				startValue={3}
-				min={0}
 				max={25}
 			/>
-
-			{/* <NumericInput
-					style={styles.numeric}
-					totalHeight={30}
-					totalWidth={50}
-					textColor={colors.text}
-					backgroundColor={colors.midBlue}
-					leftButtonBackgroundColor={colors.pop}
-					rightButtonBackgroundColor={colors.pop}
-					borderColor={colors.text}
-					separatorWidth={1}
-					rounded={true}
-					value={Number(nVariables)}
-					minValue={1}
-					maxValue={25}
-					step={1}
-					onChange={updateNVariables}
-				/> */}
 		</View>
 	);
 }

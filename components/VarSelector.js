@@ -1,6 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import NumericInput from "react-native-numeric-input";
+import NumInput from "./NumInput";
+import colors from "../colors";
+
+const styles = StyleSheet.create({
+	inputStyles: {
+		width: 60,
+		fontSize: 25,
+		borderRadius: 15,
+		textAlign: "center",
+		borderWidth: 1,
+		borderColor: colors.text,
+		backgroundColor: colors.wash,
+	},
+});
 
 function VarSelector({
 	n,
@@ -28,10 +42,10 @@ function VarSelector({
 		inputs[i] = {
 			key: `x${i + 1}`,
 			value: (
-				<NumericInput
-					key={i}
-					type="up-down"
-					valueType="real"
+				<NumInput
+					style={styles.inputStyles}
+					startValue={""}
+					max="none"
 					onChange={(newVal) => {
 						setCoefficients((prevState) => {
 							prevState[n][i] = newVal;
@@ -46,10 +60,10 @@ function VarSelector({
 	inputs[nVariables] = {
 		key: `=`,
 		value: (
-			<NumericInput
-				key="const"
-				type="up-down"
-				valueType="real"
+			<NumInput
+				style={styles.inputStyles}
+				startValue={""}
+				max="none"
 				onChange={(newVal) =>
 					setConstants((prevState) => {
 						prevState[n] = newVal;
@@ -66,10 +80,10 @@ function VarSelector({
 			<Text> {equation}</Text>
 			{/* inputs */}
 			{inputs.map((x) => (
-				<Text key={x.key}>
+				<View key={x.key}>
 					<Text>{x.key}</Text>
 					{x.value}
-				</Text>
+				</View>
 			))}
 		</View>
 	);
