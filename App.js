@@ -5,6 +5,8 @@ import NSelector from "./components/NSelector";
 import VarSelectors from "./components/VarSelectors";
 import SolveButton from "./components/SolveButton";
 import AnsDisplay from "./components/AnsDisplay";
+import NumInput from "./components/NumInput";
+import colors from "./colors";
 
 export default function App() {
 	const [nVariables, setNVariables] = React.useState(3);
@@ -19,6 +21,8 @@ export default function App() {
 			paddingTop: 40, // fuck ios
 			paddingLeft: 25,
 			paddingRight: 25,
+			// colors
+			backgroundColor: colors.midBlue,
 		},
 	});
 
