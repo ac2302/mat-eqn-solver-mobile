@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import NumericInput from "react-native-numeric-input";
 import NumInput from "./NumInput";
 import colors from "../colors";
 
@@ -13,6 +12,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: colors.text,
 		backgroundColor: colors.wash,
+		width: 100,
 	},
 });
 

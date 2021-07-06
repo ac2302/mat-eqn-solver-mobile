@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text } from "react-native";
-import NSelector from "./NSelector";
 import VarSelector from "./VarSelector";
 
 function VarSelectors({
